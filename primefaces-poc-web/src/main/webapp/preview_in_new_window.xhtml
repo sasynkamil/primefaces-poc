@@ -1,0 +1,17 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="WEB-INF/template/base_template.xhtml">
+
+    <ui:define name="baseContent">
+
+        <p:panelGrid layout="grid" columns="2" style="width: 200px">
+            <p:outputLabel value="Errand id"/>
+            <p:outputLabel value="#{previewController.errandId}"/>
+            <p:outputLabel value="Asset id"/>
+            <p:outputLabel value="#{previewController.assetId}"/>
+        </p:panelGrid>
+
+    </ui:define>
+
+</ui:composition>

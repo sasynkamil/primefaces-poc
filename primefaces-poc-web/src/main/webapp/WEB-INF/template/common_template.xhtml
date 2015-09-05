@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                template="base_template.xhtml">
+
+    <ui:define name="baseContent">
+        <!--<ui:debug/>-->
+
+        <pe:layout widgetVar="layoutWidget" options="#{layoutController.layoutOptions}" stateCookie="false">
+        <!--<pe:layout widgetVar="layoutWidget" stateCookie="false">-->
+
+            <pe:layoutPane position="north" styleClassContent="common-pane-header">
+                <ui:include src="layout/top_menu.xhtml"/>
+                <ui:include src="layout/header.xhtml"/>
+            </pe:layoutPane>
+
+            <pe:layoutPane position="center">
+
+                <pe:layoutPane position="north" styleClassContent="common-pane-controlpanel">
+                    <ui:include src="layout/control_menu.xhtml"/>
+                </pe:layoutPane>
+
+                <pe:layoutPane position="center" maskContents="false">
+                    <ui:insert name="commonContent"/>
+                </pe:layoutPane>
+
+            </pe:layoutPane>
+
+        </pe:layout>
+    </ui:define>
+
+</ui:composition>

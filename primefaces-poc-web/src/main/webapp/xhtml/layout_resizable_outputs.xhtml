@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+
+<f:view>
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+            <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+            <title>PrimeFacesPOC</title>
+        </f:facet>
+
+        <f:facet name="last">
+
+            <!-- PRODUCTION & IE: CSS -->
+            <!--<link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/css/common/generated/common-all.min.css"/>-->
+
+            <!-- DEVELOPMENT: LESS -->
+            <link rel="stylesheet/less" href="#{request.contextPath}/resources/css/common/common-all.less"/>
+            <script type="text/javascript" src="#{request.contextPath}/resources/js/common/less.min.js"/>
+        </f:facet>
+    </h:head>
+
+    <h:body>
+        <pe:layout stateCookie="false" fullPage="true" options="#{layoutController.layoutOptions}">
+            <pe:layoutPane position="north">
+
+                <p:fieldset legend="Delivery point" styleClass="common-inline common-legend-h3">
+                    <p:panelGrid columns="2">
+                        <p:outputLabel value="First name"/>
+                        <p:outputLabel value="John"/>
+
+                        <p:outputLabel value="Surename"/>
+                        <p:outputLabel value="Black"/>
+
+                        <p:outputLabel value="Sex"/>
+                        <p:outputLabel value="male"/>
+
+                        <p:outputLabel value="Age"/>
+                        <p:outputLabel value="30"/>
+
+                        <p:outputLabel value="Country"/>
+                        <p:outputLabel value="United states"/>
+
+                        <p:outputLabel value="Email"/>
+                        <p:outputLabel value="black.john@google.com"/>
+                    </p:panelGrid>
+                </p:fieldset>
+
+                <p:fieldset legend="Customer" styleClass="common-inline common-legend-h3">
+                    <p:panelGrid columns="2">
+                        <p:outputLabel value="First name"/>
+                        <p:outputLabel value="John"/>
+
+                        <p:outputLabel value="Surename"/>
+                        <p:outputLabel value="Black"/>
+
+                        <p:outputLabel value="Sex"/>
+                        <p:outputLabel value="male"/>
+
+                        <p:outputLabel value="Age"/>
+                        <p:outputLabel value="30"/>
+
+                        <p:outputLabel value="Country"/>
+                        <p:outputLabel value="United states"/>
+
+                        <p:outputLabel value="Email"/>
+                        <p:outputLabel value="black.john@google.com"/>
+                    </p:panelGrid>
+                </p:fieldset>
+            </pe:layoutPane>
+
+            <pe:layoutPane position="center">
+                <p:outputPanel>
+                    <p:outputLabel value="Table content"/>
+                </p:outputPanel>
+            </pe:layoutPane>
+        </pe:layout>
+    </h:body>
+
+</f:view>
+</html>

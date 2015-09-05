@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                xmlns:o="http://omnifaces.org/ui"
+                template="common_template.xhtml">
+
+    <ui:param name="applicationLogo" value="AM"/>
+    <ui:param name="moduleLogo" value="Asset"/>
+
+    <ui:define name="commonContent">
+
+        <pe:layoutPane position="north" styleClassContent="common-pane-form">
+            <p:outputPanel id="westPanelId">
+                <h:form id="lefMenuFormId" prependId="false">
+                    <p:outputPanel>
+                        <ui:include src="../../xhtml/errand/menu/errand_menu.xhtml"/>
+                    </p:outputPanel>
+                </h:form>
+            </p:outputPanel>
+        </pe:layoutPane>
+
+        <pe:layoutPane position="center">
+            <ui:insert name="content"/>
+        </pe:layoutPane>
+
+    </ui:define>
+
+</ui:composition>

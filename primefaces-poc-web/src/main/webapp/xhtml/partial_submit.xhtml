@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<f:view>
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+            <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+            <title>PrimeFacesPOC</title>
+        </f:facet>
+    </h:head>
+
+    <h:body>
+
+        <h:form>
+            <p:commandButton value="Submit"
+                             action="#{someController.actionIncreaseValue()}"
+                             update="outputLabelId"
+                             partialSubmit="false"
+                             process="@this, outputLabelId"/>
+
+            <p:commandButton value="Partial submit"
+                             action="#{someController.actionIncreaseValue()}"
+                             update="outputLabelId"
+                             partialSubmit="true"
+                             process="@this, outputLabelId"/>
+
+            <p:outputLabel id="outputLabelId" value="#{someController.someValue}"/>
+            <p:inputText/>
+            <p:inputText/>
+            <p:inputText/>
+            <p:inputText/>
+            <p:inputText/>
+            <p:inputText/>
+            <p:inputText/>
+        </h:form>
+
+        <h:form>
+            <c:forEach begin="0" end="5000" varStatus="loop">
+                <p:panelGrid>
+                    <p:row>
+                        <p:column>
+                            <p:outputLabel value="Label #{loop.index}"/>
+                        </p:column>
+                        <p:column>
+                            <p:inputText value="Value #{loop.index}"/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+
+            </c:forEach>
+        </h:form>
+
+    </h:body>
+
+</f:view>
+</html>

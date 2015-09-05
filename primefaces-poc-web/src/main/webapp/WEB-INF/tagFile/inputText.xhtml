@@ -1,0 +1,24 @@
+<ui:composition xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:util="http://energy.tieto.com/jsf/facelets/function/util"
+                xmlns:lang="http://energy.tieto.com/jsf/facelets/function/lang">
+
+
+    <c:set var="componentId" value="#{util:convertToComponentId(id)}"/>
+    <c:set var="label" value="#{util:convertToLabel(id)}"/>
+
+    <c:choose>
+        <c:when test="#{editable}">
+            <p:outputLabel for="#{componentId}" value="#{lang:text(label)}"/>
+            <p:inputText id="#{componentId}" value="#{value}" required="#{required}"/>
+        </c:when>
+        <c:otherwise>
+            <p:outputLabel value="#{lang:text(label)} #{required eq true ? ' *' : ''}"/>
+            <p:outputLabel id="#{componentId}" value="#{value}"/>
+        </c:otherwise>
+    </c:choose>
+
+</ui:composition>

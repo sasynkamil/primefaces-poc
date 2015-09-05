@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="WEB-INF/template/am_template.xhtml">
+
+    <ui:define name="content">
+
+        <h:form>
+            <p:outputLabel id="labelId" for="inputId" value="Errand id"/>
+            <p:inputText id="inputId" value="#{assetController.assetId}"/>
+
+            <p:commandButton value="Add" action="#{assetController.actionAdd()}" update="inputId"/>
+
+            <p:commandButton value="Open window"
+                             oncomplete=";openWindowJS('preview_in_new_window.xhtml', 'preview')"/>
+
+            <p:dataTable id="assetTableId" value="#{assetController.customers}" var="customer">
+                <p:column headerText="Id">
+                    <p:outputLabel value="#{customer.id}"/>
+                </p:column>
+                <p:column headerText="First name">
+                    <p:outputLabel value="#{customer.firstName}"/>
+                </p:column>
+                <p:column headerText="Surname">
+                    <p:outputLabel value="#{customer.surname}"/>
+                </p:column>
+                <p:column headerText="Birth date">
+                    <p:calendar value="#{customer.birthDate}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>
