@@ -10,6 +10,7 @@ import java.util.Map;
  */
 public enum Layout {
 
+    NOT_PROVIDED(""),
     ERRAND("/errand.xhtml"),
     ASSET("/asset.xhtml");
 
@@ -31,6 +32,7 @@ public enum Layout {
     }
 
     public static Layout getLayout(final String viewId) {
-        return LAYOUT_MAP.get(viewId);
+        Layout layout = LAYOUT_MAP.get(viewId.substring(viewId.lastIndexOf("/")));
+        return layout == null ? NOT_PROVIDED : layout;
     }
 }

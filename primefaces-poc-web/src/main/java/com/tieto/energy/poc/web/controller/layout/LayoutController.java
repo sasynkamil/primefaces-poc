@@ -1,9 +1,9 @@
 package com.tieto.energy.poc.web.controller.layout;
 
+import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.extensions.model.layout.LayoutOptions;
 
 import javax.annotation.PostConstruct;
-import org.omnifaces.cdi.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -34,6 +34,8 @@ public class LayoutController implements Serializable {
             case ASSET:
                 initAssetTemplateLayout();
                 break;
+            default:
+                initNorthCenterLayout();
         }
         return layoutOptions;
     }
@@ -47,6 +49,7 @@ public class LayoutController implements Serializable {
         pane.addOption(JQueryLayoutOption.FX_SPEED_OPEN, 100);
         pane.addOption(JQueryLayoutOption.FX_SPEED_CLOSE, 100);
         pane.addOption(JQueryLayoutOption.RESIZABLE, false);
+        pane.addOption(JQueryLayoutOption.SLIDABLE, false);
     }
 
     private LayoutOptions initCommonTemplateLayout() {
@@ -78,6 +81,10 @@ public class LayoutController implements Serializable {
         centerCenter.setChildOptions(centerCenterChild);
 
         return centerCenterChild;
+    }
+
+    private void initNorthCenterLayout() {
+        layoutOptions = new LayoutOptions();
     }
 
     private void initErrandTemplateLayout() {

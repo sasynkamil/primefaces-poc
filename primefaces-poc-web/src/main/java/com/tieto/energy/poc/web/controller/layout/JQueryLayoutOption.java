@@ -18,6 +18,7 @@ public interface JQueryLayoutOption {
     String RESIZABLE = "resizable";
     // Possibility to open/close pane by hot key (ctrl+arrow)
     String ENABLE_CURSORS = "enableCursorHotkey";
+    String ENABLE_CURSORS_NORTH = "north__enableCursorHotkey";
     // Set pane closed
     String INIT_CLOSED = "initClosed";
     // Size of resizer-bar

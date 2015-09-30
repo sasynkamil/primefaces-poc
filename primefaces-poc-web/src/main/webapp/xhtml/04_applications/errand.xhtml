@@ -2,30 +2,30 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                template="WEB-INF/template/am_template.xhtml">
+                template="../../WEB-INF/template/wm_template.xhtml">
 
     <ui:define name="content">
 
         <h:form>
             <p:outputLabel id="labelId" for="inputId" value="Errand id"/>
-            <p:inputText id="inputId" value="#{assetController.assetId}"/>
+            <p:inputText id="inputId" value="#{errandController.errandId}"/>
 
-            <p:commandButton value="Add" action="#{assetController.actionAdd()}" update="inputId"/>
+            <p:commandButton value="Add" action="#{errandController.actionAdd()}" update="inputId"/>
 
             <p:commandButton value="Open window"
                              oncomplete=";openWindowJS('preview_in_new_window.xhtml', 'preview')"/>
 
-            <p:dataTable id="assetTableId" value="#{assetController.customers}" var="customer">
+            <p:dataTable id="errandTableId" value="#{errandController.customers}" var="customer">
                 <p:column headerText="Id">
-                    <p:outputLabel value="#{customer.id}"/>
+                    <h:outputText value="#{customer.id}"/>
                 </p:column>
                 <p:column headerText="First name">
-                    <p:outputLabel value="#{customer.firstName}"/>
+                    <h:outputText value="#{customer.firstName}"/>
                 </p:column>
                 <p:column headerText="Surname">
-                    <p:outputLabel value="#{customer.surname}"/>
+                    <h:outputText value="#{customer.surname}"/>
                 </p:column>
-                <p:column headerText="Birth date">
+                <p:column headerText="Birth timestampDate">
                     <p:calendar value="#{customer.birthDate}"/>
                 </p:column>
             </p:dataTable>

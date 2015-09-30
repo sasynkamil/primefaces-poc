@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html"
+                template="../../WEB-INF/template/base_template.xhtml">
+
+    <ui:define name="baseContent">
+
+        <h:form>
+            <p:dataTable id="timestampDataTableId"
+                         value="#{timestampController.timestamps}"
+                         var="timestampUI"
+                         rowKey="#{timestampUI.timestamp.timestampId}">
+
+                <p:column>
+                    <p:commandButton icon=""
+                                     update="timestampDataTableId"
+                                     rendered="#{timestampUI.isTimestampNotSet()}"
+                                     action="#{timestampController.setTimestamp(timestampUI)}"/>
+
+                    <p:commandButton icon="ui-icon-check"
+                                     update="timestampDataTableId"
+                                     rendered="#{timestampUI.isTimestampChangedSet()}"
+                                     action="#{timestampController.undoSetTimestamp(timestampUI)}"/>
+
+                    <p:commandButton icon="ui-icon-check"
+                                     update="timestampDataTableId"
+                                     rendered="#{timestampUI.isTimestampSet()}"
+                                     action="#{timestampController.clearTimestamp(timestampUI)}"/>
+
+                    <p:commandButton icon="ui-icon-closethick"
+                                     update="timestampDataTableId"
+                                     rendered="#{timestampUI.isTimestampChangedCleared()}"
+                                     action="#{timestampController.undoClearTimestamp(timestampUI)}"/>
+                </p:column>
+
+                <p:column headerText="ID">
+                    #{timestampUI.timestamp.timestampId}
+                </p:column>
+
+                <p:column headerText="Signature">
+                    #{timestampUI.timestamp.timestampSignature}
+                </p:column>
+
+                <p:column headerText="Date">
+                    <p:calendar value="#{timestampUI.timestamp.timestampDate}" disabled="true"/>
+                </p:column>
+
+            </p:dataTable>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>
